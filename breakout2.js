@@ -8,7 +8,7 @@ function phone(z){
         var dx = 0;
         var dy = 0;
         var padheight = 10;
-        var padwidth = 70;
+        var padwidth = 75;
         var padx = (canvas.width - padwidth)/2;
         var pady = canvas.height - padheight;
         var rightpress = false;
