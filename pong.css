@@ -12,7 +12,7 @@ body{
 #title{
 color: white;
 padding: 6px;
-margin-left: 540px;
+margin-left: 45%;
 }
 canvas{
     width: 1200px;
@@ -51,7 +51,7 @@ canvas{
         margin: -18px 0 0 0;
     }
     #title{
-        margin-left: 120px;
+        margin-left: 40%;
     }
     #myCanvas{
         visibility: hidden;
