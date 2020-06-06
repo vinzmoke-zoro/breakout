@@ -26,7 +26,8 @@ canvas{
 #foot{
     background-color: black;
     color: white;
-    height: 20px;
+    height: 35px;
+    font-size : 25px;
     width: 100%;
     border-radius: 6px;
 }
@@ -91,11 +92,12 @@ canvas{
         #foot{
             background-color: black;
             color: white;
-            height: 30px;
+            height: 35px;
+            font-size : 18px;
             width: 100%;
             border-radius: 6px;
         }
         #foot p{
-            margin: 60px 25% 0 45%;
+            margin: 60px 25% 0 35%;
         }            
 }
