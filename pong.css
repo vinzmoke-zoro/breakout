@@ -12,7 +12,7 @@ body{
 #title{
 color: white;
 padding: 6px;
-margin-left: 550px;
+margin-left: 540px;
 }
 canvas{
     width: 1200px;
@@ -67,7 +67,7 @@ canvas{
       
     #btns{
         visibility: visible;
-        height: 20px;
+        height: 10px;
         width: 30px;
         margin: 5% 0% 0px 57%;
         }
