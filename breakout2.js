@@ -30,12 +30,11 @@ function phone(z){
                 console.log(bricks[c][r]);
             }
         }
-        document.querySelector("body").addEventListener("click", function(){
-            dx = 3;
-            dy = -3;            
-        });
-
-        
+            document.querySelector("#phoneCanvas").addEventListener("click", function(){
+                dx = 3;
+                dy = -3;   
+            });
+    
 document.querySelector("#myCanvas").remove();
 document.getElementById("right").addEventListener("touchstart", function(){
         rightpress = true;
@@ -50,6 +49,20 @@ document.getElementById("left").addEventListener("touchend", function(){
 leftpress = false;
 });      
 
+
+document.getElementById("right").addEventListener("mousedown", function(){
+    rightpress = true;
+});     
+document.getElementById("right").addEventListener("mouseup", function(){
+rightpress = false;
+});      
+document.getElementById("left").addEventListener("mousedown", function(){
+leftpress = true;
+});     
+document.getElementById("left").addEventListener("mouseup", function(){
+leftpress = false;
+});      
+
         function drawscore(){
         ctx.font = "20px Arial";
         ctx.fillStyle = "Green";
@@ -59,6 +72,11 @@ leftpress = false;
         ctx.font = "20px Arial";
         ctx.fillStyle = "Red";
         ctx.fillText("Lives : " + lives, canvas.width - 90, 25);
+        }
+        function liveszero(){
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "Red";
+            ctx.fillText("Lives : " + 0, canvas.width - 90, 25);
         }
         function drawball(){
             ctx.beginPath();
@@ -92,6 +110,28 @@ leftpress = false;
                 }
             }
         }
+        function win(){
+            ctx.font = "25px Arial";
+            ctx.fillStyle = "Green";
+            ctx.fillText("Congratulations!You Won!",canvas.width / 4, canvas.height / 2);
+            ctx.fillText("Double tap to play again.",canvas.width / 4, canvas.height / 2 + 30);
+
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+            ctx.fill();
+        }
+        function lose(){
+            ctx.font = "25px Arial";
+            ctx.filStyle = "Red";
+            ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
+            ctx.fillText("Double tap to retry.",canvas.width / 4, canvas.height / 2 + 30);
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+            ctx.fill();
+        }
+        function reload(){
+            document.location.reload();
+        }
         function drawbricks(){
             for(var c = 0 ; c < brickcol ; c ++){
                 for(var r = 0 ; r < brickrow ; r ++){
@@ -115,8 +155,28 @@ leftpress = false;
         drawbricks();
         drawpaddle();
         drawscore();
+        if(lives >= 0){
         drawlives();
+        }
+        else{
+            liveszero();
+        }
         colldet();
+        if(score == brickrow * brickcol * 7){
+            win();
+            document.getElementById("#phoneCanvas").addEventListener("dblclick", function(){
+                reload();
+            });
+        }
+        if(dx == 0 && dy == 0){
+            ctx.font = "25px Arial";
+            ctx.fillStyle = "rgba(0, 0, 255, 2)";   
+            ctx.fillText("Tap Here to Start.", canvas.width/4, canvas.height/2);
+     
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+            ctx.fill();
+        }        
         if(x + dx > canvas.width - ballrad || x + dx < ballrad){
             dx = -dx;
         }
@@ -130,9 +190,11 @@ leftpress = false;
         }
         else{
             lives --;
-        if(!lives){
-            alert("GAME OVER!");
-            document.location.reload();
+        if(lives == 0){
+            lose();
+            document.getElementById("#phoneCanvas").addEventListener("dblclick", function(){
+                reload();
+            });
         }
         else{
             x = canvas.width / 2;
@@ -142,7 +204,7 @@ leftpress = false;
             }
           }
         }  
-        if(rightpress && padx < canvas.width - padwidth/2){
+        if(rightpress && padx < canvas.width - padwidth){
             padx += 14;
           }
         if(leftpress && padx > 0){
@@ -154,6 +216,25 @@ leftpress = false;
         }
         draw();  
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     else{
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
@@ -178,6 +259,7 @@ leftpress = false;
         var score = 0;
         var lives = 3;
         var bricks = [];
+        var click = 0;
         for(var c = 0 ; c < brickcol ; c ++){
             bricks[c] = [];
             for(var r = 0 ; r < brickrow ; r ++){
@@ -185,10 +267,11 @@ leftpress = false;
                 console.log(bricks[c][r]);
             }
         }
-        document.querySelector("body").addEventListener("click", function(){
+       var start = document.querySelector("#myCanvas").addEventListener("click", function(){
             dx = 6;
             dy = -6;
-        });        
+        });
+    
         document.querySelector("#phoneCanvas").remove();
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
@@ -224,8 +307,8 @@ leftpress = false;
         }
         function mouseMoveHandler(e){
             var relx = e.clientX - canvas.offsetLeft;
-            if(relx > 0 && relx < canvas.width){
-                padx = relx - padwidth/2;
+            if(relx > 240 && relx < canvas.width){
+                padx = relx - padwidth + 3;
             }
         }
         function drawscore(){
@@ -237,6 +320,11 @@ leftpress = false;
         ctx.font = "21px Arial";
         ctx.fillStyle = "Red";
         ctx.fillText("Lives : " + lives, canvas.width - 85, 20);
+        }
+        function liveszero(){
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "Red";
+            ctx.fillText("Lives : " + 0, canvas.width - 90, 25);
         }
         function drawball(){
             ctx.beginPath();
@@ -261,14 +349,36 @@ leftpress = false;
                             dy = -dy;
                             b.status = 0;
                             score += 7;
-                            if(score == brickrow * brickcol * 7){
-                                alert("CONGRATULATIONS!YOU WON!");
-                                document.location.reload();
-                            }
+                            //
+                            //
                         }
                     }
                 }
             }
+        }
+        function win(){
+            ctx.font = "40px Arial";
+            ctx.fillStyle = "Green";
+            ctx.fillText("Congratulations!You Won!",canvas.width / 4, canvas.height / 2);
+            ctx.fillText("Press R to Play again!", canvas.width / 4, canvas.height/ 2 + 80);
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+            ctx.fill();
+            dx = 0;
+            dy = 0;
+
+        }
+        function lose(){
+            ctx.font = "40px Arial";
+            ctx.fillStyle = "Red";
+            ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
+            ctx.fillText("Press R to Try again!", canvas.width / 4, canvas.height/ 2 + 80);
+            ctx.rect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+            ctx.fill();
+            dx = 0;
+            dy = 0;
+
         }
         function drawbricks(){
             for(var c = 0 ; c < brickcol ; c ++){
@@ -287,7 +397,11 @@ leftpress = false;
                 }
             }
         }
+        function reload(){
+            document.location.reload();
+        }
         function draw(){
+
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawball();    
         drawbricks();
@@ -295,6 +409,21 @@ leftpress = false;
         drawscore();
         drawlives();
         colldet();
+        if(score == brickrow * brickcol * 7){
+            win();
+            document.addEventListener("keydown", keyDownHandler, false);
+            function keyDownHandler(e){
+                 if(e.keyCode == 82){
+                    reload();
+                 }
+             }
+        }
+        if(lives >= 0){
+            drawlives();
+            }
+            else{
+                liveszero();
+            }
         if(x + dx > canvas.width - ballrad || x + dx < ballrad){
             dx = -dx;
         }
@@ -308,9 +437,15 @@ leftpress = false;
         }
         else{
             lives --;
-        if(!lives){
-            alert("GAME OVER!");
-            document.location.reload();
+        if(lives == 0){
+            lose();
+             document.addEventListener("keydown", keyDownHandler, false);
+            function keyDownHandler(e){
+                 if(e.keyCode == 82){
+                    reload();
+                 }
+             }
+   
         }
         else{
             x = canvas.width / 2;
@@ -320,7 +455,7 @@ leftpress = false;
             }
           }
         }  
-        if(rightpress && padx < canvas.width - padwidth/2){
+        if(rightpress && padx < canvas.width - padwidth){
             padx += 14;
           }
         if(leftpress && padx > 0){
