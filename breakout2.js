@@ -114,7 +114,7 @@ leftpress = false;
             ctx.font = "25px Arial";
             ctx.fillStyle = "Green";
             ctx.fillText("Congratulations!You Won!",canvas.width / 4, canvas.height / 2);
-            ctx.fillText("Double tap to play again.",canvas.width / 4, canvas.height / 2 + 30);
+            ctx.fillText("Swipe Down to Play again.",canvas.width / 4, canvas.height / 2 + 30);
 
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
@@ -124,7 +124,7 @@ leftpress = false;
             ctx.font = "25px Arial";
             ctx.filStyle = "Red";
             ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
-            ctx.fillText("Double tap to retry.",canvas.width / 4, canvas.height / 2 + 30);
+            ctx.fillText("Swipe Down to retry.",canvas.width / 4, canvas.height / 2 + 30);
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
