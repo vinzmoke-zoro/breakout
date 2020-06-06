@@ -51,7 +51,7 @@ canvas{
         margin: -18px 0 0 0;
     }
     #title{
-        margin-left: 40%;
+        margin-left: 35%;
     }
     #myCanvas{
         visibility: hidden;
@@ -67,7 +67,7 @@ canvas{
       
     #btns{
         visibility: visible;
-        height: 10px;
+        height: 5px;
         width: 30px;
         margin: 5% 0% 0px 57%;
         }
