@@ -12,7 +12,7 @@ body{
 #title{
 color: white;
 padding: 6px;
-margin : 0, auto;
+margin : 0 auto;
 }
 canvas{
     width: 1200px;
@@ -32,7 +32,7 @@ canvas{
     border-radius: 6px;
 }
 #foot p{
-    margin: 0, auto;
+    margin: 0 auto;
 }
 #btns{
     visibility: hidden;
@@ -51,7 +51,7 @@ canvas{
         margin: -18px 0 0 0;
     }
     #title{
-        margin : 0, auto;
+        margin : 0 auto;
     }
     #myCanvas{
         visibility: hidden;
@@ -98,6 +98,6 @@ canvas{
             border-radius: 6px;
         }
         #foot p{
-            margin : 0, auto;
+            margin : 0 auto;
         }            
 }
