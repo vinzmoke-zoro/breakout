@@ -40,7 +40,7 @@ canvas{
 }
 
 
-@media(max-width:700px){
+@media(max-width:800px){
     body{
         background-color: rgb(16, 0, 75);
     }
@@ -52,7 +52,7 @@ canvas{
         margin: -18px 0 0 0;
     }
     #title{
-        margin : 0 auto;
+        margin : auto;
     }
     #myCanvas{
         visibility: hidden;
