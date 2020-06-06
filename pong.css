@@ -91,11 +91,11 @@ canvas{
         #foot{
             background-color: black;
             color: white;
-            height: 25px;
+            height: 30px;
             width: 100%;
             border-radius: 6px;
         }
         #foot p{
-            margin: 50px 25% 0 45%;
+            margin: 60px 25% 0 45%;
         }            
 }
