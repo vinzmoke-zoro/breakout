@@ -101,10 +101,6 @@ leftpress = false;
                             dy = -dy;
                             b.status = 0;
                             score += 7;
-                            if(score == brickrow * brickcol * 7){
-                                alert("CONGRATULATIONS!YOU WON!");
-                                document.location.reload();
-                            }
                         }
                     }
                 }
@@ -411,7 +407,7 @@ leftpress = false;
         colldet();
         if(score == brickrow * brickcol * 7){
             win();
-            document.addEventListener("keydown", keyDownHandler, false);
+            document.addEventListener("keydown", keyDownHandler);
             function keyDownHandler(e){
                  if(e.keyCode == 82){
                     reload();
@@ -439,7 +435,7 @@ leftpress = false;
             lives --;
         if(lives == 0){
             lose();
-             document.addEventListener("keydown", keyDownHandler, false);
+             document.addEventListener("keydown", keyDownHandler);
             function keyDownHandler(e){
                  if(e.keyCode == 82){
                     reload();
