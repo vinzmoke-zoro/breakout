@@ -160,8 +160,8 @@ leftpress = false;
         var ballrad = 10;
         var x = canvas.width/2;
         var y = canvas.height - 30;
-        var dx = 6;
-        var dy = -6;
+        var dx = 0;
+        var dy = 0;
         var padheight = 10;
         var padwidth = 250;
         var padx = (canvas.width - padwidth)/2;
@@ -185,6 +185,10 @@ leftpress = false;
                 console.log(bricks[c][r]);
             }
         }
+        document.querySelector("body").addEventListener("click", function(){
+            dx = 6;
+            dy = -6;
+        });        
         document.querySelector("#phoneCanvas").remove();
         document.addEventListener("keydown", keyDownHandler, false);
         document.addEventListener("keyup", keyUpHandler, false);
