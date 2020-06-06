@@ -37,16 +37,16 @@ function phone(z){
 
         
 document.querySelector("#myCanvas").remove();
-document.getElementById("right").addEventListener("mousedown", function(){
+document.getElementById("right").addEventListener("touchstart", function(){
         rightpress = true;
 });     
-document.getElementById("right").addEventListener("mouseup", function(){
+document.getElementById("right").addEventListener("touchend", function(){
     rightpress = false;
 });      
-document.getElementById("left").addEventListener("mousedown", function(){
+document.getElementById("left").addEventListener("touchstart", function(){
     leftpress = true;
 });     
-document.getElementById("left").addEventListener("mouseup", function(){
+document.getElementById("left").addEventListener("touchend", function(){
 leftpress = false;
 });      
 
