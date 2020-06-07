@@ -31,7 +31,7 @@ function phone(z){
                 console.log(bricks[c][r]);
             }
         }
-           document.querySelector("#myCanvas").addEventListener("click", function(){
+           document.querySelector("#phoneCanvas").addEventListener("click", function(){
                if(cn == 0){
             dy = -4;
                }
