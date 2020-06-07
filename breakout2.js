@@ -15,13 +15,14 @@ function phone(z){
         var leftpress = false;
         var brickrow = 9;
         var brickcol = 5;
-        var brickwidth = 30;
+        var brickwidth = 33;
         var brickheight = 20;
         var brickpadding = 7;
         var brickoffsetleft = 10;
         var brickoffsettop = 30;
         var score = 0;
         var lives = 3;
+        var cn = 0;
         var bricks = [];
         for(var c = 0 ; c < brickcol ; c ++){
             bricks[c] = [];
@@ -30,10 +31,12 @@ function phone(z){
                 console.log(bricks[c][r]);
             }
         }
-            document.querySelector("#phoneCanvas").addEventListener("click", function(){
-                dx = 4;
-                dy = -4;   
-            });
+           document.querySelector("#myCanvas").addEventListener("click", function(){
+               if(cn == 0){
+            dy = -4;
+               }
+               cn ++;
+        });
     
 document.querySelector("#myCanvas").remove();
 document.getElementById("right").addEventListener("touchstart", function(){
@@ -160,7 +163,7 @@ leftpress = false;
         colldet();
         if(score == brickrow * brickcol * 7){
             win();
-            document.getElementById("#phoneCanvas").addEventListener("dblclick", function(){
+            document.querySelector("#phoneCanvas").addEventListener("click", function(){
                 reload();
             });
         }
@@ -188,7 +191,7 @@ leftpress = false;
             lives --;
         if(lives == 0){
             lose();
-            document.getElementById("#phoneCanvas").addEventListener("dblclick", function(){
+            document.querySelector("#phoneCanvas").addEventListener("click", function(){
                 reload();
             });
         }
@@ -256,6 +259,7 @@ leftpress = false;
         var lives = 3;
         var bricks = [];
         var click = 0;
+        var cn = 0;
         for(var c = 0 ; c < brickcol ; c ++){
             bricks[c] = [];
             for(var r = 0 ; r < brickrow ; r ++){
@@ -264,8 +268,10 @@ leftpress = false;
             }
         }
        var start = document.querySelector("#myCanvas").addEventListener("click", function(){
-            dx = 6;
+           if(cn == 0){
             dy = -6;
+           }
+           cn ++;
         });
     
         document.querySelector("#phoneCanvas").remove();
@@ -406,12 +412,10 @@ leftpress = false;
         colldet();
         if(score == brickrow * brickcol * 7){
             win();
-            document.addEventListener("keydown", keyDownHandler);
-            function keyDownHandler(e){
-                 if(e.keyCode == 82){
-                    reload();
-                 }
-             }
+            document.querySelector("#myCanvas").addEventListener("click", function(){
+                reload();
+            });
+
         }
         if(lives >= 0){
             drawlives();
@@ -434,19 +438,18 @@ leftpress = false;
             lives --;
         if(lives == 0){
             lose();
-             document.addEventListener("keydown", keyDownHandler);
-            function keyDownHandler(e){
-                 if(e.keyCode == 82){
-                    reload();
-                 }
-             }
-   
+             document.querySelector("#myCanvas").addEventListener("click", function(){
+                 reload();
+             });
         }
         else{
             x = canvas.width / 2;
             y = canvas.height - 30;
-            dx = 6;
-            dy = -6;
+            dx = 0;
+            dy = 0;
+            document.querySelector("#myCanvas").addEventListener("click", function(){
+                dy = -6;
+            });
             }
           }
         }  
