@@ -206,7 +206,7 @@ leftpress = false;
                 reload();
             });
         }
-        if(lives > 0 || score == 0 && score !> 0){
+        if(lives > 0 || score == 0 && score < 1){
             x = canvas.width / 2;
             y = canvas.height - 30;
             dx = 0;
