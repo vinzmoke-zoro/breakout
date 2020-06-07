@@ -4,7 +4,7 @@ function phone(z){
         var ctx = canvas.getContext("2d");
         var ballrad = 7;
         var x = canvas.width/2;
-        var y = canvas.height - 30;
+        var y = canvas.height - 18;
         var dx = 0;
         var dy = 0;
         var padheight = 10;
@@ -34,6 +34,7 @@ function phone(z){
            document.querySelector("#phoneCanvas").addEventListener("click", function(){
                if(cn == 0){
             dy = -4;
+            console.log(lives);
                }
                cn ++;
         });
@@ -117,12 +118,7 @@ leftpress = false;
             ctx.font = "25px Arial";
             ctx.fillStyle = "Green";
             ctx.fillText("Congratulations!You Won!",canvas.width / 4 - 40, canvas.height / 2);
-            ctx.fillText("Swipe Down to Play again.",canvas.width / 4 - 40, canvas.height / 2 + 30);
-            ctx.beginPath();
-            ctx.rect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-            ctx.fill();
-            ctx.closePath();
+            ctx.fillText("Tap Here to Play again.",canvas.width / 4 - 40, canvas.height / 2 + 30);
         }
         function lose(){
             dx = 0;
@@ -132,12 +128,7 @@ leftpress = false;
             ctx.font = "25px Arial";
             ctx.filStyle = "Red";
             ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
-            ctx.fillText("Swipe down to retry.",canvas.width / 4, canvas.height / 2 + 30);
-            ctx.beginPath();
-            ctx.rect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-            ctx.fill();
-            ctx.closePath();
+            ctx.fillText("Tap Here to retry.",canvas.width / 4, canvas.height / 2 + 30);
         }
         function reload(){
             document.location.reload();
@@ -160,7 +151,18 @@ leftpress = false;
             }
         }
         function draw(){
+            if(lives != 0){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            else{
+                ctx.beginPath();
+                ctx.rect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "rgba(0, 0, 0, 0)";
+                ctx.fill();
+                ctx.closePath();
+                console.log("x");
+                sleep(5000);
+            }
         drawball();    
         drawbricks();
         drawpaddle();
@@ -173,8 +175,9 @@ leftpress = false;
         }
         colldet();
         if(score == brickrow * brickcol * 7){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             win();
-            document.querySelector("#phoneCanvas").addEventListener("dblclick", function(){
+            document.querySelector("#phoneCanvas").addEventListener("click", function(){
                 reload();
             });
         }
@@ -199,25 +202,31 @@ leftpress = false;
             dy = -dy;
         }
         else{
-            if(lives >= 0){
+            if(lives > 0){
             lives --;
             }
         if(!lives){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             lose();
-            document.querySelector("#phoneCanvas").addEventListener("dblclick", function(){
+            document.querySelector("#phoneCanvas").addEventListener("click", function(){
                 reload();
             });
         }
-        if(lives > 0 || score <= 0){
+        else if(lives > 0 && lives < 3){
             x = canvas.width / 2;
-            y = canvas.height - 30;
+            y = canvas.height - 18;
             dx = 0;
             dy = 0;
+            if(lives > 0 && dx == 0 && dy == 0){
             document.querySelector("#phoneCanvas").addEventListener("click", function(){
                 console.log(lives);
-                console.log(score);
             dy = -4;
              });
+             }
+            }
+            else{
+                dx = 0;
+                dy = 0;
             }
           }
         }  
@@ -257,7 +266,7 @@ leftpress = false;
         var ctx = canvas.getContext("2d");
         var ballrad = 10;
         var x = canvas.width/2;
-        var y = canvas.height - 30;
+        var y = canvas.height - 21;
         var dx = 0;
         var dy = 0;
         var padheight = 10;
@@ -285,12 +294,13 @@ leftpress = false;
                 console.log(bricks[c][r]);
             }
         }
-       var start = document.querySelector("#myCanvas").addEventListener("click", function(){
-           if(cn == 0){
+           document.querySelector("#myCanvas").addEventListener("click", function(){
+               if(cn == 0){
             dy = -6;
-           }
-           cn ++;
+               }
+               cn ++;
         });
+    
     
         document.querySelector("#phoneCanvas").remove();
         document.addEventListener("keydown", keyDownHandler, false);
@@ -382,22 +392,26 @@ leftpress = false;
             ctx.font = "40px Arial";
             ctx.fillStyle = "Green";
             ctx.fillText("Congratulations!You Won!",canvas.width / 4, canvas.height / 2);
-            ctx.fillText("Press R to Play again!", canvas.width / 4, canvas.height/ 2 + 80);
+            ctx.fillText("Click here to Play again!", canvas.width / 4, canvas.height/ 2 + 80);
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
+
         }
         function lose(){
             dx = 0;
             dy = 0;
-            ctx.font = "40px Arial";
-            ctx.fillStyle = "Red";
-            ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
-            ctx.fillText("Press R to Try again!", canvas.width / 4, canvas.height/ 2 + 80);
-            ctx.rect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-            ctx.fill();
-            
+            setTimeout(()=>{
+                ctx.beginPath();
+                ctx.font = "40px Arial";
+                ctx.fillStyle = "Red";
+                ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
+                ctx.fillText("Click here to Try again!", canvas.width / 4, canvas.height/ 2 + 80);
+                ctx.rect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+                ctx.fill();
+                ctx.closePath();
+            }, 1000);
         }
         function drawbricks(){
             for(var c = 0 ; c < brickcol ; c ++){
@@ -420,8 +434,18 @@ leftpress = false;
             document.location.reload();
         }
         function draw(){
-
+            if(lives != 0){
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+            else{
+                ctx.beginPath();
+                ctx.rect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "rgba(0, 0, 0, 0)";
+                ctx.fill();
+                ctx.closePath();
+                console.log("x");
+                sleep(5000);
+            }
         drawball();    
         drawbricks();
         drawpaddle();
@@ -429,6 +453,7 @@ leftpress = false;
         drawlives();
         colldet();
         if(score == brickrow * brickcol * 7){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             win();
             document.querySelector("#myCanvas").addEventListener("click", function(){
                 reload();
@@ -453,21 +478,26 @@ leftpress = false;
             dy = -dy;
         }
         else{
+            if(lives >= 0){
             lives --;
+            }
         if(lives == 0){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             lose();
-             document.querySelector("#myCanvas").addEventListener("click", function(){
+            document.querySelector("#myCanvas").addEventListener("click", function(){
                  reload();
              });
         }
         else{
             x = canvas.width / 2;
-            y = canvas.height - 30;
+            y = canvas.height - 21;
             dx = 0;
             dy = 0;
+            if(lives > 1 && dx == 0 && dy == 0){
             document.querySelector("#myCanvas").addEventListener("click", function(){
                 dy = -6;
             });
+             }
             }
           }
         }  
