@@ -193,13 +193,13 @@ leftpress = false;
         }
         else{
             lives --;
-        if(lives == 0){
+        if(!lives){
             lose();
             document.querySelector("#phoneCanvas").addEventListener("dblclick", function(){
                 reload();
             });
         }
-        else{
+        else if(lives > 0){
             x = canvas.width / 2;
             y = canvas.height - 30;
             dx = 0;
