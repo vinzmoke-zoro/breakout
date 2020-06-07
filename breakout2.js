@@ -203,7 +203,10 @@ leftpress = false;
             x = canvas.width / 2;
             y = canvas.height - 30;
             dx = 0;
+            dy = 0;
+            document.querySelector("#phoneCanvas").addEventListener("click", function(){
             dy = -4;
+             });
             }
           }
         }  
