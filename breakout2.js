@@ -112,6 +112,10 @@ leftpress = false;
         function win(){
             dx = 0;
             dy = 0;
+            rightpress = false;
+            leftpress = false;
+            padx = 0;
+            pady = 0;
             ctx.font = "25px Arial";
             ctx.fillStyle = "Green";
             ctx.fillText("Congratulations!You Won!",canvas.width / 4 - 40, canvas.height / 2);
@@ -125,6 +129,10 @@ leftpress = false;
         function lose(){
             dx = 0;
             dy = 0;
+            rightpress = false;
+            leftpress = false; 
+            padx = 0;
+            pady = 0;
             ctx.font = "25px Arial";
             ctx.filStyle = "Red";
             ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
@@ -202,7 +210,7 @@ leftpress = false;
                 reload();
             });
         }
-        else if(lives > 0){
+        else if(lives > 0 || score != brickrow * brickcol * 7){
             x = canvas.width / 2;
             y = canvas.height - 30;
             dx = 0;
