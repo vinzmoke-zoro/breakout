@@ -171,9 +171,9 @@ leftpress = false;
                 reload();
             });
         }
-        if(dx == 0 && dy == 0){
+        if(dx == 0 && dy == 0 && lives == 3){
             ctx.font = "25px Arial";
-            ctx.fillStyle = "rgba(0, 0, 255, 2)";   
+            ctx.fillStyle = "rgba(0, 10, 255, 1)";   
             ctx.fillText("Tap Here to Start.", canvas.width/4, canvas.height/2);
      
             ctx.rect(0, 0, canvas.width, canvas.height);
