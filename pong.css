@@ -37,6 +37,8 @@ canvas{
     margin : 50px 0 0 0;
     justify-content: center;
     align-items: center;
+    position : relative;
+    bottom : 0;
 }
 #foot p{
     margin: auto;
@@ -110,6 +112,8 @@ canvas{
             margin : 50px 0 0 0;
             justify-content: center;
             align-items: center;
+            position : relative;
+            bottom : 0;
         }
         #foot p{
             margin : auto;
