@@ -109,8 +109,8 @@ leftpress = false;
         function win(){
             ctx.font = "25px Arial";
             ctx.fillStyle = "Green";
-            ctx.fillText("Congratulations!You Won!",canvas.width / 4, canvas.height / 2);
-            ctx.fillText("Swipe Down to Play again.",canvas.width / 4, canvas.height / 2 + 30);
+            ctx.fillText("Congratulations!You Won!",canvas.width / 4 - 40, canvas.height / 2);
+            ctx.fillText("Swipe Down to Play again.",canvas.width / 4 - 40, canvas.height / 2 + 30);
 
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
@@ -360,8 +360,6 @@ leftpress = false;
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
-            dx = 0;
-            dy = 0;
 
         }
         function lose(){
@@ -372,9 +370,6 @@ leftpress = false;
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
-            dx = 0;
-            dy = 0;
-
         }
         function drawbricks(){
             for(var c = 0 ; c < brickcol ; c ++){
