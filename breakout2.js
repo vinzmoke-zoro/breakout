@@ -115,7 +115,7 @@ leftpress = false;
             ctx.font = "25px Arial";
             ctx.fillStyle = "Green";
             ctx.fillText("Congratulations!You Won!",canvas.width / 4 - 40, canvas.height / 2);
-            ctx.fillText("Tap here to Play again.",canvas.width / 4 - 40, canvas.height / 2 + 30);
+            ctx.fillText("Swipe Down to Play again.",canvas.width / 4 - 40, canvas.height / 2 + 30);
 
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
@@ -127,7 +127,7 @@ leftpress = false;
             ctx.font = "25px Arial";
             ctx.filStyle = "Red";
             ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
-            ctx.fillText("Tap here to retry.",canvas.width / 4, canvas.height / 2 + 30);
+            ctx.fillText("Swipe down to retry.",canvas.width / 4, canvas.height / 2 + 30);
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
@@ -167,13 +167,13 @@ leftpress = false;
         colldet();
         if(score == brickrow * brickcol * 7){
             win();
-            document.querySelector("#phoneCanvas").addEventListener("click", function(){
+            document.querySelector("#phoneCanvas").addEventListener("dblclick", function(){
                 reload();
             });
         }
         if(dx == 0 && dy == 0 && lives == 3){
             ctx.font = "25px Arial";
-            ctx.fillStyle = "rgba(0, 10, 255, 1)";   
+            ctx.fillStyle = "white";   
             ctx.fillText("Tap Here to Start.", canvas.width/4, canvas.height/2);
      
             ctx.rect(0, 0, canvas.width, canvas.height);
@@ -195,7 +195,7 @@ leftpress = false;
             lives --;
         if(lives == 0){
             lose();
-            document.querySelector("#phoneCanvas").addEventListener("click", function(){
+            document.querySelector("#phoneCanvas").addEventListener("dblclick", function(){
                 reload();
             });
         }
