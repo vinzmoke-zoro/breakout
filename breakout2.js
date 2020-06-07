@@ -116,10 +116,11 @@ leftpress = false;
             ctx.fillStyle = "Green";
             ctx.fillText("Congratulations!You Won!",canvas.width / 4 - 40, canvas.height / 2);
             ctx.fillText("Swipe Down to Play again.",canvas.width / 4 - 40, canvas.height / 2 + 30);
-
+            ctx.beginPath();
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
+            ctx.closePath();
         }
         function lose(){
             dx = 0;
@@ -128,9 +129,11 @@ leftpress = false;
             ctx.filStyle = "Red";
             ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
             ctx.fillText("Swipe down to retry.",canvas.width / 4, canvas.height / 2 + 30);
+            ctx.beginPath();
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
+            ctx.closePath();
         }
         function reload(){
             document.location.reload();
