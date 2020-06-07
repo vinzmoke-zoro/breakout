@@ -199,7 +199,9 @@ leftpress = false;
             dy = -dy;
         }
         else{
+            if(lives >= 0){
             lives --;
+            }
         if(!lives){
             lose();
             document.querySelector("#phoneCanvas").addEventListener("dblclick", function(){
@@ -212,6 +214,8 @@ leftpress = false;
             dx = 0;
             dy = 0;
             document.querySelector("#phoneCanvas").addEventListener("click", function(){
+                console.log(lives);
+                console.log(score);
             dy = -4;
              });
             }
