@@ -8,14 +8,14 @@ function phone(z){
         var dx = 0;
         var dy = 0;
         var padheight = 10;
-        var padwidth = 75;
+        var padwidth = 78;
         var padx = (canvas.width - padwidth)/2;
         var pady = canvas.height - padheight;
         var rightpress = false;
         var leftpress = false;
         var brickrow = 9;
         var brickcol = 5;
-        var brickwidth = 33;
+        var brickwidth = 30;
         var brickheight = 20;
         var brickpadding = 7;
         var brickoffsetleft = 10;
