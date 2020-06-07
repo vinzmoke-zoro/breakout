@@ -206,7 +206,7 @@ leftpress = false;
                 reload();
             });
         }
-        else if(lives > 0 || score != brickrow * brickcol * 7){
+        else if(lives > 0 || score = 0){
             x = canvas.width / 2;
             y = canvas.height - 30;
             dx = 0;
