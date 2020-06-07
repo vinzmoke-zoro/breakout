@@ -31,8 +31,8 @@ function phone(z){
             }
         }
             document.querySelector("#phoneCanvas").addEventListener("click", function(){
-                dx = 3;
-                dy = -3;   
+                dx = 4;
+                dy = -4;   
             });
     
 document.querySelector("#myCanvas").remove();
@@ -195,8 +195,8 @@ leftpress = false;
         else{
             x = canvas.width / 2;
             y = canvas.height - 30;
-            dx = 6;
-            dy = -6;
+            dx = 4;
+            dy = -4;
             }
           }
         }  
@@ -353,6 +353,8 @@ leftpress = false;
             }
         }
         function win(){
+            dx = 0;
+            dy = 0;
             ctx.font = "40px Arial";
             ctx.fillStyle = "Green";
             ctx.fillText("Congratulations!You Won!",canvas.width / 4, canvas.height / 2);
@@ -360,9 +362,10 @@ leftpress = false;
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
-
         }
         function lose(){
+            dx = 0;
+            dy = 0;
             ctx.font = "40px Arial";
             ctx.fillStyle = "Red";
             ctx.fillText("Game Over!", canvas.width / 4, canvas.height/ 2);
@@ -370,6 +373,7 @@ leftpress = false;
             ctx.rect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
             ctx.fill();
+            
         }
         function drawbricks(){
             for(var c = 0 ; c < brickcol ; c ++){
