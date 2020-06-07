@@ -459,6 +459,6 @@ leftpress = false;
         draw();      
     }
 }
-var z = window.matchMedia("(max-width : 600px)");
+var z = window.matchMedia("(max-width : 800px)");
 phone(z);
 z.addListener(phone);
