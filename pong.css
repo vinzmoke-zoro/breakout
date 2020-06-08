@@ -97,11 +97,6 @@ canvas{
     .btn:hover{
             background-color : rgba(0, 0, 10, 0.3);            
     }
-    .btn:focus{
-        outline-style : solid;
-        outline-color : rgb(128, 0, 0);   
-        -moz-outline-radius : 8px;
-    }
         #right{
             margin-right: -100px;
             float: right;
