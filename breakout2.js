@@ -101,7 +101,7 @@ leftpress = false;
                 for(var r = 0 ; r < brickrow ; r ++){
                     var b = bricks[c][r];
                     if(b.status == 1){
-                        if(x > b.x && x < b.x + brickwidth && y > b.y && y < b.y + brickheight){
+                        if(x > b.x && x < b.x + brickwidth + 15 && y > b.y && y < b.y + brickheight + 15){
                             dy = -dy;
                             b.status = 0;
                             score += 7;
