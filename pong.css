@@ -50,7 +50,7 @@ canvas{
 
 @media(max-width:800px){
     body{
-        background-color: rgb(16, 0, 75);
+        background-color: rgb(9, 51, 102);
     }
     #top{
         display : flex;
@@ -95,12 +95,12 @@ canvas{
             outline : none;
         }
     .btn:hover{
-            background-color : rgba(0, 0, 10, 0.6);            
+            background-color : rgba(0, 0, 10, 0.3);            
     }
     .btn:focus{
         outline-style : solid;
         outline-color : rgb(128, 0, 0);   
-        outline-radius : 8px;
+        -moz-outline-radius : 8px;
     }
         #right{
             margin-right: -100px;
