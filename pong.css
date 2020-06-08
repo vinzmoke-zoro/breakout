@@ -99,7 +99,8 @@ canvas{
     }
     .btn:focus{
         outline-style : solid;
-        outline-color : red;   
+        outline-color : rgb(128, 0, 0);   
+        outline-radius : 8px;
     }
         #right{
             margin-right: -100px;
