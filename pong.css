@@ -92,11 +92,14 @@ canvas{
             border-radius: 8px;
             border: 2px solid rgb(73, 0, 0);
             margin: -10px 0 0 0;
+            outline : none;
         }
     .btn:hover{
-            background-color : rgba(0, 0, 10, 0.6);
-            width : 105px;
-            
+            background-color : rgba(0, 0, 10, 0.6);            
+    }
+    .btn:focus{
+        outline-style : solid;
+        outline-color : red;   
     }
         #right{
             margin-right: -100px;
